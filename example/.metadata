@@ -7,4 +7,4 @@ version:
   revision: 1407091bfb5bb535630d4d596541817737da8412
   channel: dev
 
-project_type: package
+project_type: app

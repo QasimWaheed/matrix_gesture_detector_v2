@@ -1,16 +1,26 @@
-# example
+# matrix_gesture_detector
 
-A new Flutter project.
+`MatrixGestureDetector` detects translation, scale and rotation gestures
+and combines them into `Matrix4` object that can be used by `Transform` widget
+or by low level `CustomPainter` code. You can customize types of reported
+gestures by passing `shouldTranslate`, `shouldScale` and `shouldRotate`
+parameters.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+The usage is as follows:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```dart
+  MatrixGestureDetector(
+    onMatrixUpdate: (Matrix4 m, Matrix4 tm, Matrix4 sm, Matrix4 rm) {
+      setState(() {
+        matrix = m;
+      });
+    },
+    child: SomeWidgetThatUsesMatrix(
+      matrix: matrix,
+      ...
+    )
+  )
+```
+.
